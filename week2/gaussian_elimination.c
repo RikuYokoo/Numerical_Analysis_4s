@@ -36,6 +36,7 @@ int main (){
       I++;
     }
   }
+  //printf("\n");
   //ここまで
   //b input start
   for(int i = 0;i < 3;i++){
@@ -45,7 +46,28 @@ int main (){
       scanf("%d", &matrix[i][0]);
     brow++;
   }
-//aに代入　いらない
+  printf("\n");
+  i = 0, j = 0;
+  for(int R = 0;R < 9;R++){
+    printf("%d\t", Smatrix[i][j]);
+    j++;
+    if(j == 3){
+      j = 0;
+      i++;
+    }
+    if(R == 2){
+      printf("\tx1\t\t%d\n", matrix[0][0]);
+    }
+    if(R == 5){
+      printf("*\tx2\t=\t%d\n", matrix[1][0]);
+    }
+    if(R == 8){
+      printf("\tx3\t\t%d\n", matrix[2][0]);
+    }
+  }
+
+//aに代入　いらない　ここから48
+  /*
   for(i = 0;i < 3;i++){
     a[i][0] = Smatrix[i][0];
     a[i][1] = Smatrix[i][1];
@@ -73,7 +95,8 @@ int main (){
   for(i = 0;i < 3;i++){
     printf("b%d1 : %d ", brow++, matrix[i][0]);
   }
-  printf("\n");
+  printf("\n");//ここまで76
+  */
   //計算記述開始
   //a11,a22,a33に代入 a11以外いらない
   a11 = Smatrix[0][0];
@@ -89,7 +112,7 @@ int main (){
   temporary_ab1row[3] = matrix[0][0];
   temporary_ab2row[3] = matrix[1][0];
   temporary_ab3row[3] = matrix[2][0];
-  printf("\nb1:%f\nb2:%f\nb3:%f\n", temporary_ab1row[3], temporary_ab2row[3], temporary_ab3row[3]);
+  //printf("\nb1:%f\nb2:%f\nb3:%f\n", temporary_ab1row[3], temporary_ab2row[3], temporary_ab3row[3]);
     //1~3行目を代入する。終わり
   for(i = 0;i < 4;i++){
     new_ab1row[i] =(double) temporary_ab1row[i] / a11;
@@ -152,5 +175,9 @@ int main (){
     printf("%f\t", new_ab3row[i]);
   }
   printf("\n");
+  printf("Answer\n");
+  printf("x1 = %.3f\n", new_ab1row[3]);
+  printf("x2 = %.3f\n", new_ab2row[3]);
+  printf("x3 = %.3f\n", new_ab3row[3]);
   return 0;
 }
