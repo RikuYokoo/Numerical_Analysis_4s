@@ -82,7 +82,7 @@ int main (){
   }
   temporary_ab1row[3] = matrix[0][0];
     //1行目を代入する。終わり
-  for(i = 0;i < 3;i++){
+  for(i = 0;i < 4;i++){
     new_ab1row[i] =(double) temporary_ab1row[i] / a11;
   }
   //確認用
