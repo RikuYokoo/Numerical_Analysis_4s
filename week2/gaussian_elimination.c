@@ -5,9 +5,9 @@ int main (){
   int matrix[3][1];
   int a[3][3];
   int b[3][1];
-  int I = 1, J = 1, i = 0, j = 0, brow = 1;
+  int I = 1, J = 1, i = 0, j = 0, brow = 1;//I,J:aの添字  i,j 配列の添字
 
-  printf("a11 a12 a13   x1   b1\na21 a22 a23 * x2 = b2\na31 a32 a33   x3   b3\n");
+  printf("a11 a12 a13   x1   b1\na21 a22 a23 * x2 = b2\na31 a32 a33   x3   b3\n");//式を表示
 /*a11~a33までの入力　始まり*/
   for(int R = 0;R < 9;R++){
     printf("a%d%d:", I, J);
@@ -24,7 +24,6 @@ int main (){
       I++;
     }
     j++;
-    //if(i >= 2 && j == 2) break;
   }
   //ここまで
   //b input start
@@ -35,7 +34,7 @@ int main (){
       scanf("%d", &matrix[i][0]);
     brow++;
   }
-
+//aに代入
   for(i = 0;i < 3;i++){
     a[i][0] = Smatrix[i][0];
     a[i][1] = Smatrix[i][1];
@@ -43,13 +42,9 @@ int main (){
   }
   printf("%d\n", a[1][1]);
   //a output start
-    i = 0;
-    j = 0;
-    I = 1;
-    J = 1;
+    i = 0, j = 0, I = 1, J = 1;
   for(int r = 0;r < 9;r++){
-    //i = 0, j = 0, I = 1, J = 1;
-    printf("a%d%d : %d", I, J, Smatrix[i][j]);
+    printf("a%d%d : %d\t", I, J, Smatrix[i][j]);
     J++;
     if(j == 2){
       j = 0;
