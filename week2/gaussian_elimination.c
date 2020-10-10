@@ -5,9 +5,12 @@ int main (){
   int matrix[3][1];
   int a[3][3];
   int b[3][1];
-  double temporary_ab1row[4];
-  double temporary_ab2row[4];
-  double temporary_ab3row[4];
+  double temporary_ab1row[4];//1行目の中継
+  double temporary_ab2row[4];//2行目の中継
+  double temporary_ab3row[4];//3行目の中継
+  double new_ab1row[4];//新しい1行目
+  double new_ab2row[4];//新しい2行目
+  double new_ab3row[4];//新しい3行目
   int I = 1, J = 1, i = 0, j = 0, brow = 1, a11, a22, a33;//I,J:aの添字  i,j 配列の添字
 
   printf("a11 a12 a13   x1   b1\na21 a22 a23 * x2 = b2\na31 a32 a33   x3   b3\n");//式を表示
@@ -50,7 +53,8 @@ int main (){
   for(int r = 0;r < 9;r++){
     printf("a%d%d : %d\t", I, J, Smatrix[i][j]);
     J++;
-    if(j == 2){
+    j++;
+    if(j == 3){
       j = 0;
       i++;
     }
@@ -58,7 +62,6 @@ int main (){
       J = 1;
       I++;
     }
-    j++;
   }
   printf("\n");
   //b output start
@@ -72,17 +75,20 @@ int main (){
   a11 = Smatrix[0][0];
   a22 = Smatrix[1][1];
   a33 = Smatrix[2][2];
-  printf("%d, %d, %d\n", a11, a22, a33);
   //1:a11を1にするために1行目を/a11する。
     //1行目を代入する。
   for(i = 0;i < 3;i++){
     temporary_ab1row[i] = Smatrix[0][i];
   }
   temporary_ab1row[3] = matrix[0][0];
-  /*確認用
+    //1行目を代入する。終わり
+  for(i = 0;i < 3;i++){
+    new_ab1row[i] =(double) temporary_ab1row[i] / a11;
+  }
+  //確認用
      for(i = 0;i < 4;i++){
-  printf("%f\n",temporary_ab1row[i]);
-  }*/
+  printf("%f\n",new_ab1row[i]);
+  }
   //2:a21,a31を0にするために2行目-1行目*a21, 3行目-1行目*a31をする。
   //3:a22を1にするために2行目を/a22する。
   //4:a12,a32を0にするために1行目-2行目*a12, 3行目-2行目*a32をする。
