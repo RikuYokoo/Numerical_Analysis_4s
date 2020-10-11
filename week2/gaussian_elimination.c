@@ -23,8 +23,8 @@ int main (){
     printf("a%d%d:", I, J);
     scanf("%d",&Smatrix[i][j]);
 //    printf("a%d%d\n", i, j);
-    while(Smatrix[i][j] == '\n')
-      scanf("%d",&Smatrix[i][j]);
+    //while(Smatrix[i][j] == '\n')
+    //  scanf("%d",&Smatrix[i][j]);
     J++;
     j++;
     if(j == 3){
@@ -42,8 +42,8 @@ int main (){
   for(int i = 0;i < 3;i++){
     printf("b%d1 : ", brow);
     scanf("%d", &matrix[i][0]);
-    while(matrix[i][0] == '\n')
-      scanf("%d", &matrix[i][0]);
+    //while(matrix[i][0] == '\n')
+     // scanf("%d", &matrix[i][0]);
     brow++;
   }
   printf("\n");
