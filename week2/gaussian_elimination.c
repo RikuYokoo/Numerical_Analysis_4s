@@ -39,8 +39,6 @@ int main (){
   for(int i = 0;i < 3;i++){
     printf("b%d1 : ", brow);
     scanf("%d", &matrix[i]);
-    while(matrix[i] == '\n')
-      scanf("%d", &matrix[i]);
     brow++;
   }
   printf("\n");
