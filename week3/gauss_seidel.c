@@ -18,9 +18,18 @@ double get_x3(double x1, double x2)
 int main()
 {
   double x1, x2, x3, b_x1, b_x2, b_x3, diff_x1, diff_x2, diff_x3;
-  int i = 0;
+  int i = 0, e;
+
+  printf("強制終了の回数を入力してください");
+  scanf("%d", &e);
 
   x1 = x2 = x3 = 1.0;
+
+  printf("初期値を決めてください\n");
+  printf("x1:"); scanf("%lf", &x1);
+  printf("x2:"); scanf("%lf", &x2);
+  printf("x3:"); scanf("%lf", &x3);
+  //x1 = x2 = x3 = 1.0;
 
   //for( i=0; i<20; i++)
   while(1)
@@ -65,7 +74,7 @@ int main()
 
     //強制終了
     i++;
-    if(i == 100)
+    if(i == e)
       break;
   }
 
