@@ -1,4 +1,7 @@
 #include<stdio.h>
+//double x1_error_calc(double, double);
+//double x2_error_calc(double, double);
+//double x3_error_calc(double, double);
 //#include"gauss.h"
 /*double get_x1(double x2, double x3)
 {
@@ -18,9 +21,9 @@ double get_x3(double x1, double x2)
 
 int main()
 {
-  double x1, x2, x3, b_x1, b_x2, b_x3, diff_x1, diff_x2, diff_x3, a11, a22, a33;
+  double x1, x2, x3, b_x1, b_x2, b_x3, diff_x1, diff_x2, diff_x3, a11, a22, a33, e = 0.0000000001;
   double Smatrix[3][3], matrix[3], ab1row[4], ab2row[4], ab3row[4];
-  int i = 0, e = 0.0000000001, q, I = 1, J = 1, j = 0, brow = 1;
+  int i = 0, q, I = 1, J = 1, j = 0, brow = 1;
 
   printf("強制終了の回数を入力してください");
   scanf("%d", &q);
@@ -72,8 +75,7 @@ int main()
   }
   /*--a,b表示終わり-----------------------------------------------------------------------*/
 
-  //計算記述開始
-  //a11,a22,a33に代入 
+  //a11,a22,a33に対角成分代入 
   a11 = Smatrix[0][0];
   a22 = Smatrix[1][1];
   a33 = Smatrix[2][2];
@@ -88,18 +90,18 @@ int main()
   ab3row[3] = matrix[2];
   /*--代入終わり。----------------------------------------------------------------------*/
 
-  /*printf("初期値を決めてください\n");
+  printf("初期値を決めてください\n");
   printf("x1:"); scanf("%lf", &x1);
   printf("x2:"); scanf("%lf", &x2);
   printf("x3:"); scanf("%lf", &x3);
-  */
-  x1 = x2 = x3 = 1.0;
+  
+  //x1 = x2 = x3 = 1.0;
   i = 0;
   while(1)
   {
-    b_x1 = x1;
-    b_x2 = x2;
-    b_x3 = x3;
+    b_x1 = x1;//1個前のx1をb_x1に代入
+    b_x2 = x2;//1個前のx2をb_x2に代入
+    b_x3 = x3;//1個前のx2をb_x2に代入
     x1 = (double) ((ab1row[3] - ab1row[1] * x2 -ab1row[2] * x3) / a11);
     x2 = (double) ((ab2row[3] - ab2row[0] * x1 -ab2row[2] * x3) / a22);
     x3 = (double) ((ab3row[3] - ab3row[0] * x1 -ab3row[1] * x2) / a33);
@@ -130,17 +132,68 @@ int main()
     {
       diff_x3 = x3 - b_x3;
     }
+    
     printf("[i=%d]\tx1 = %.10f, x2 = %.10f, x3 = %.10f\n", i+1, x1, x2, x3 );
 
     if(diff_x1 <= e && diff_x2 <= e && diff_x3 <= e)//誤差の条件
+    {
+      printf("Answer:x1 = %.3f x2 = %.3f x3 = %.3f\n", x1, x2, x3);
       break;
+    }
 
     i++;
+    //強制終了
     if(i == q)
+    {
+      printf("試行回数が少ないか解は出ません。\n");
       break;
+    }
   }
-
-
-
+  return 0;
 }
 
+/*double x1_error_calc(double b_x1, double x1)
+{
+  double diff_x1;
+
+  if(b_x1 >= x1) //x1の誤差の計算
+  {
+    diff_x1 = b_x1 - x1;
+  }
+  else if(b_x1 < x1)
+  {
+    diff_x1 = x1 - b_x1;
+  }
+  return diff_x1;
+}
+
+double x2_error_calc(double b_x2, double x2)
+{
+  double diff_x2;
+
+  if(b_x2 >= x2) //x2の誤差の計算
+  {
+    diff_x2 = b_x2 - x2;
+  }
+  else if(b_x2 < x2)
+  {
+    diff_x2 = x2 - b_x2;
+  }
+  return diff_x2;
+}
+
+double x3_error_calc(double b_x3, double x3)
+{
+  double diff_x3;
+
+  if(b_x3 >= x3) //x3の誤差の計算
+  {
+    diff_x3 = b_x3 - x3;
+  }
+  else if(b_x3 < x3)
+  {
+    diff_x3 = x3 - b_x3;
+  }
+  return diff_x3;
+}
+*/
