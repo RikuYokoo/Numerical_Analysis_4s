@@ -5,6 +5,7 @@ int main (){
   int matrix[3][1];
   int a[3][3];
   int b[3][1];
+  int Amatrix[4][4];//Smatrix,matrixを格納
   double temporary_ab1row[4];//1行目の中継
   double temporary_ab2row[4];//2行目の中継
   double temporary_ab3row[4];//3行目の中継
@@ -14,11 +15,12 @@ int main (){
   double for_cal1row[4];
   double for_cal2row[4];
   double for_cal3row[4];
+  double ab1row[4], ab2row[4], ab3row[4];
   int I = 1, J = 1, i = 0, j = 0, brow = 1;//I,J:aの添字  i,j 配列の添字
   double a11, a22, a33, x1, x2, x3;
 
   printf("a11 a12 a13   x1   b1\na21 a22 a23 * x2 = b2\na31 a32 a33   x3   b3\n");//式を表示
-/*a11~a33までの入力　始まり*/
+/*--a11~a33までの入力　始まり------------------------------------------------------------------*/
   for(int R = 0;R < 9;R++){
     printf("a%d%d:", I, J);
     scanf("%d",&Smatrix[i][j]);
@@ -34,13 +36,15 @@ int main (){
       I++;
     }
   }
-  //ここまで
-  //b input start
+  /*--a11~a33の入力　終わり--------------------------------------------------------------------*/
+  /*--b1~b3入力　始まり-----------------------------------------------------------------------*/
   for(int i = 0;i < 3;i++){
     printf("b%d1 : ", brow);
     scanf("%d", &matrix[i][0]);
     brow++;
   }
+  /*--b入力　終わり-----------------------------------------------------------------------*/
+  /*--a,b表示始まり-----------------------------------------------------------------------*/
   printf("\n");
   i = 0, j = 0;
   for(int R = 0;R < 9;R++){
@@ -60,22 +64,29 @@ int main (){
       printf("\tx3\t\t%d\n", matrix[2][0]);
     }
   }
+  /*--a,b表示終わり-----------------------------------------------------------------------*/
 
   //計算記述開始
-  //a11,a22,a33に代入 a11以外いらない
+  //a11,a22,a33に代入 
   a11 = Smatrix[0][0];
   a22 = Smatrix[1][1];
   a33 = Smatrix[2][2];
-  //1:a11を1にするために1行目を/a11する。
     //1~3行目を代入する。
   for(i = 0;i < 3;i++){
-    temporary_ab1row[i] = Smatrix[0][i];
-    temporary_ab2row[i] = Smatrix[1][i];
-    temporary_ab3row[i] = Smatrix[2][i];
+    ab1row[i] = Smatrix[0][i];
+    ab2row[i] = Smatrix[1][i];
+    ab3row[i] = Smatrix[2][i];
   }
-  temporary_ab1row[3] = matrix[0][0];
-  temporary_ab2row[3] = matrix[1][0];
-  temporary_ab3row[3] = matrix[2][0];
+  ab1row[3] = matrix[0][0];
+  ab2row[3] = matrix[1][0];
+  ab3row[3] = matrix[2][0];
+
+  x1 = x2 = x3 = 1.0;
+  while(1)
+  {
+    x1 = (double) ((ab1row[3] - ab1row[1] * x2 -ab1row[2] * x3) / a11);
+    x2 = (double) ((ab2row[3] - ab2row[1] * x1 -ab2row[2] * x3) / a22);
+    x3 = (double) ((ab3row[3] - ab3row[1] * x1 -ab3row[2] * x2) / a33);
   //printf("\nb1:%f\nb2:%f\nb3:%f\n", temporary_ab1row[3], temporary_ab2row[3], temporary_ab3row[3]);
     //1~3行目を代入する。終わり
   for(i = 0;i < 4;i++){
