@@ -1,13 +1,13 @@
 #include<stdio.h>
 #include<math.h>
 
-double calc_x_cosx(double x)
+double calc_x_cosx(double x)//x+cos(x)を返す関数
 {
   return x + cos(x);
 }
 
 int main(){
-  double x, m_x, a, b, c, f_x, f_a, f_b, f_c, kakeru_ab, kakeru_ac, kakeru_bc, f_ac, f_bc, ans, diff_ab, e = 0.000001;
+  double a, b, c, f_x, f_a, f_b, f_c, kakeru_ab, kakeru_ac, kakeru_bc, f_ac, f_bc, diff_ab, e = 0.0000000001;
   printf("初期値を入力してください\n");
 
   printf("a:");
@@ -16,8 +16,8 @@ int main(){
   printf("b:");
   scanf("%lf", &b);
 
-  f_a = calc_x_cosx(a);
-  f_b = calc_x_cosx(b);
+  f_a = calc_x_cosx(a);//x+cos(x)にx=aを代入
+  f_b = calc_x_cosx(b);//x+cos(x)にx=bを代入
 
   kakeru_ab = f_a * f_b;
 
@@ -60,7 +60,7 @@ int main(){
   */
   }
 
-  printf("ans = %f\n", a);
+  printf("ans = %.10f\n", a);
 
   return 0;
 }
