@@ -31,7 +31,8 @@ int main(){
 
     kakeru_ab = f_a * f_b;
   }
-  while(1){
+  diff_ab = 1;
+  while(diff_ab > e){
 
   c = (a + b) / 2;//aとbの中点をcに代入
 
@@ -51,13 +52,15 @@ int main(){
 
   diff_ab = fabs(a - b);
 
+  /*
   if(diff_ab < e){
     ans = a;
     break;
   }
+  */
   }
 
-  printf("ans = %f\n", ans);
+  printf("ans = %f\n", a);
 
   return 0;
 }
