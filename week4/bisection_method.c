@@ -31,8 +31,7 @@ int main(){
 
     kakeru_ab = f_a * f_b;
   }
-  diff_ab = 1;
-  while(diff_ab > e){
+  do{
 
   c = (a + b) / 2;//aとbの中点をcに代入
 
@@ -58,7 +57,7 @@ int main(){
     break;
   }
   */
-  }
+  }while(diff_ab > e);
 
   printf("ans = %.10f\n", a);
 
