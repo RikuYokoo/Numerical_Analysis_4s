@@ -8,6 +8,7 @@ double calc_x_cosx(double x)//x+cos(x)を返す関数
 
 int main(){
   double a, b, c, f_x, f_a, f_b, f_c, kakeru_ab, kakeru_ac, kakeru_bc, f_ac, f_bc, diff_ab, e = 0.0000000001;
+  int i = 1;
   printf("初期値を入力してください\n");
 
   printf("a:");
@@ -57,6 +58,8 @@ int main(){
     break;
   }
   */
+  printf("%d\t:%.10f\n", i, a);
+  i++;
   }while(diff_ab > e);
 
   printf("ans = %.10f\n", a);
