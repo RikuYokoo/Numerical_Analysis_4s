@@ -3,17 +3,21 @@
 
 double x_cosx(double x)
 {
-  return x + cos(x);
+  //return x + cos(x);
+  //return x + exp(x);
+  return x*x*x - 3*x*x + 9*x -8;
 }
 
 double diff_x_cos(double x)
 {
-  return 1 - sin(x);
+  //return 1 - sin(x);
+  //return 1 + exp(x);
+  return 2*x*x - 6*x + 9;
 }
 
 int main(){
   FILE *progress;
-  double x, delta_x, fx, diff_fx, eps = 0.0000000001;
+  double y, x, delta_x, fx, diff_fx, eps = 0.0000000001;
   int i = 0, n = 100;
 
   printf("初期値を入力してください。\nx:");
@@ -28,14 +32,14 @@ int main(){
     delta_x = -fx / diff_fx;
 
     x += delta_x;
-    
+    y = x_cosx(x);
     printf("%d\t:%.10f\n", i+1, x);
 
     //fprintf(progress, "%.10f\t%.10f\n", x, fx);
-    fprintf(progress, "%.10f\t0\n", x);
+    fprintf(progress, "%.10f\t%.10f\n", x, y);
 
     i++;
-  }while(fabs(delta_x) > eps && i <= n);
+  }while(fabs(delta_x) > eps);
 
   printf("ans = %.10f\n", x);
 
