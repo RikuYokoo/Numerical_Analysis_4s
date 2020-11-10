@@ -31,7 +31,8 @@ int main(){
     
     printf("%d\t:%.10f\n", i+1, x);
 
-    fprintf(progress, "%.10f\t%.10f\n", x, fx);
+    //fprintf(progress, "%.10f\t%.10f\n", x, fx);
+    fprintf(progress, "%.10f\t0\n", x);
 
     i++;
   }while(fabs(delta_x) > eps && i <= n);
