@@ -2,14 +2,20 @@
 #include<stdlib.h>
 #include<math.h>
 
-double x_cosx(double x)
+double non_linear(double x)
 {
+  //return x*x*x - 3*x*x + 9*x -8;
   return x + cos(x);
+  //return x + exp(x);
+  //return cos(x) + sin(x);
 }
 
-double diff_x_cos(double x)
+double diff_non_linear(double x)
 {
+  //return 3*x*x - 6*x + 9;
   return 1 - sin(x);
+  //return 1 + exp(x);
+  //return -sin(x) + cos(x);
 }
 
 int main(){
@@ -21,8 +27,8 @@ int main(){
   scanf("%lf", &x);
   
   do{
-    fx = x_cosx(x);
-    diff_fx = diff_x_cos(x);
+    fx = non_linear(x);
+    diff_fx = diff_non_linear(x);
 
     delta_x = -fx / diff_fx;
 
@@ -32,7 +38,7 @@ int main(){
     i++;
 
     if(i == n){
-      printf("解が求まりませんでした。\n終了する場合は'e'を続行する場合は'c'を初期値を再入力する場合は'r'を入力してください。");
+      printf("%d回繰り返しましたが、解が求まりませんでした。\n終了する場合は'e'を続行する場合は'c'を初期値を再入力する場合は'r'を入力してください。", n);
       scanf("%c", &str);
       while(str == '\n')
         scanf("%c", &str);
@@ -46,6 +52,7 @@ int main(){
         i = 0;
         continue;
       }else if(str == 'c'){
+        n += 100;
         continue;
       }else{
         printf("終了します。\n");
@@ -55,6 +62,7 @@ int main(){
     }
   }while(fabs(delta_x) > eps /*&& i<= n*/);
 
+  printf("%d回目で解が求まりました。\n", i);
   printf("ans = %.10f\n", x);
 
   return 0;

@@ -50,6 +50,7 @@ int main(){
   f_b = calc_x_cosx(b);
 
   diff_ab = fabs(a - b);
+  printf("a:%.10f\nb:%.10f\n", a, b);
 
   /*
   if(diff_ab < e){
