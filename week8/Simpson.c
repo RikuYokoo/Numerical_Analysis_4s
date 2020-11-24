@@ -1,5 +1,4 @@
 #include<stdio.h>
-#include<unistd.h>
 
 double calc(double x)
 {
@@ -11,11 +10,15 @@ int main(){
   int n;
   double y, delta_x, a, b, c, ans, mid, xn = 0;
 
+  /*
   printf("積分範囲は？\n");
   printf("上b:");
   scanf("%lf", &b);
   printf("下a:");
   scanf("%lf", &a);
+  */
+  b = 3;
+  a = 0;
 
   c = b - a;
 
@@ -24,7 +27,6 @@ int main(){
 
   n *= 2;
   printf("%d\n", n);//deleat
-  sleep(2);//deleat
 
   delta_x =(double) c / n;
 
