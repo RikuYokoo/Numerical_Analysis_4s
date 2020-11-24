@@ -30,6 +30,7 @@ int main(){
 
   delta_x =(double) c / n;
 
+  xn = a;
   for(int i = 0; i <= n; i++){
     if(i == 0){
       y = calc(a);
@@ -46,7 +47,7 @@ int main(){
     }
 
     mid += y;
-    printf("%d%f\n", i, mid);
+    printf("%d:%f\n", i, xn);
     xn += delta_x;
   }
   
