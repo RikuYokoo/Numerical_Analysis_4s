@@ -4,11 +4,12 @@
 double calc(double x)
 {
   //return x*x*x*x - 2*x*x*x + x*x - 3*x +1;
-  return x*x + 2*x - 1;
+  return 1/x;
+  //return x*x + 2*x - 1;
 }
 
 int main(){
-  double y, delta_x, a, b, c, ans, mid, n, xn = 0;
+  double y, delta_x, a, b, c, ans, mid = 0, n, xn = 0;
   
 
   printf("積分範囲は？\n");
@@ -24,14 +25,14 @@ int main(){
 
   delta_x = c/n;
   printf("%f\n", delta_x);
+  xn = a;
 
   for(int i = 0; i <= n; i++){
     if(i == 0){
       y = calc(a);
       printf("start\n");
-    }
-    if(i >= n){
-     y = calc(b); 
+    }else if(i == n){
+      y = calc(b); 
     }else{
       y = 2 * calc(xn);
     }
