@@ -31,10 +31,11 @@ int main(){
   for(i = 0; i < max; i++){
     rewind(wp);
     ran = rand() % count;
-    printf("\nran = %d\n", ran);
+    //printf("\nran = %d\n", ran);
     while((str = fgetc(wp)) != EOF){
       if(j == ran){
-        printf("%d:%c", i, str);
+        printf("%c", str);
+        //printf("%d:%c", i, str);
       }
       j++;
     }
