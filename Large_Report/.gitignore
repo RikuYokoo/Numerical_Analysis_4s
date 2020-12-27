@@ -1,0 +1,11 @@
+*
+!*/
+!*.*
+*.txt
+!gousei.txt
+!henkan.txt
+
+*.c
+!kadai1.c
+!kadai2.c
+!kadai4.c
