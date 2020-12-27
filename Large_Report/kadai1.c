@@ -4,8 +4,8 @@ int main(){
   FILE *rp, *wp;
   char str;
 
-  rp = fopen("kadai.txt", "r");
-  wp = fopen("mojiretu.txt", "a");
+  rp = fopen("gousei.txt", "r");
+  wp = fopen("henkan.txt", "w");
 
   if(rp == NULL){
     printf("file open error\n");

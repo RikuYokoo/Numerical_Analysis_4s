@@ -3,7 +3,8 @@
 int main(){
   FILE *wp;
   char str, mid, r[27] = {'a'}, R[27] = {'A'}, alpha = 'a', Alpha = 'A';
-  int a[27] = {0}, i, tmp;
+  int a[27] = {0}, i, tmp, sum=0;
+  double ratio;
   
   /*---配列r[i],R[i]にそれぞれ小文字、大文字をa~zまで代入-----------------------------*/
   for(int i = 0; i < 26; i++){
@@ -34,7 +35,14 @@ int main(){
         }
       }
     }
+    sum++;
   }
+  /*for(i = 0; i < 27; i++){
+    ratio = (double)(a[i]/sum);
+    printf("aiu\n");
+    printf("%c:%d   %d\n", r[i], a[i], sum);
+  }*/
+
 /*--aから順に出てきた数の出力-----------------*/
   for(int i = 0; i < 27; i++){
     printf("%c:%d\n", r[i], a[i]);
@@ -52,10 +60,16 @@ int main(){
       }
     }
   }
-  printf("narabekae\n");
+  //printf("narabekae\n");
+  printf("result\n");
   for(i = 0; i < 27; i++){
     printf("%c:%d\n", r[i], a[i]);
   }
+  printf("文字数は%d\n", sum);
+  /*for(i = 0; i < 27; i++){
+    ratio = (double)(a[i]/sum);
+    printf("%c:%f\n", r[i], ratio);
+  }*/
 
     fclose(wp);
     return 0;
