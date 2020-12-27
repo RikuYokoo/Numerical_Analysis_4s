@@ -2,7 +2,6 @@
 #include<stdlib.h>
 #include<time.h>
 
-int GetRandom(int min, int max);
 
 int main(){
   FILE *wp;
