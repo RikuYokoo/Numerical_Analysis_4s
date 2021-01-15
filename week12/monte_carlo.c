@@ -13,7 +13,8 @@ double point_where(double x, double y)
 }
 
 int main(){
-  int within_range=0, total=0;
+  //int within_range=0, total=0;
+  unsigned long within_range=0, total=0;
   double radius=0.5/*半径*/, x=0.0, y=0.0, circle_area=0.0, pi=0.0, where = 0.0, range, tem_area;
 
   srand( (unsigned)time(NULL) );
@@ -21,9 +22,9 @@ int main(){
   range = radius*radius;
 
   printf("試行回数を入力:");
-  scanf("%d", &total);
+  scanf("%ld", &total);
 
-  for(int i = 0; i < total; i++){
+  for(unsigned long i = 0; i < total; i++){
     x = (double)rand()/RAND_MAX;
     y = (double)rand()/RAND_MAX;
 
@@ -34,7 +35,7 @@ int main(){
     if(where <= range)
       within_range++;
     
-    tem_area = (double)within_range/(double)(i+1);
+    //tem_area = (double)within_range/(double)(i+1);
     //printf("%d: area = %lf\n", i+1, tem_area);
   }
 
